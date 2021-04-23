@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8" />
     <title>Reservation</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet"/>
-    <link rel="stylesheet" href="modal.css" />
+    <link rel="stylesheet" href="./css/modal.css" />
   </head>
   <body>
     <header class="topnav" id="myTopnav">
       
       <div class="header-logo">
-        <img alt="logo" src="Logo.png" width="auto" height="auto" />
+        <img alt="logo" src="./assets/Logo.png" width="auto" height="auto" />
       </div>
 
       <nav class="main-navbar">
@@ -48,7 +48,7 @@
         </div>
 
         <div class="hero-img">
-          <img src="./bg_img.jpg" alt="img" />
+          <img src="./assets/bg_img.jpg" alt="img" />
         </div>
 
         <!-- Mobile Version -->
@@ -64,9 +64,9 @@
           <div class="modal-body">
             <form
               name="reserve"
-              action="index.html"
-              method="get"
-              onsubmit="return validate();"
+              id="formReserve"
+              action="sendForm.php"
+              method="post"
             >
               <div class="formData">
                 <label for="first">Prénom</label>
@@ -78,6 +78,7 @@
                   name="first"
                   minlength="2"
                 />
+                <small></small>
                 <br>
               </div>
               <div class="formData">
@@ -88,7 +89,9 @@
                   type="text"
                   id="last"
                   name="last"
+                  minlength="2"
                 />
+                <small></small>
                 <br>
               </div>
               <div class="formData">
@@ -100,6 +103,7 @@
                   id="email"
                   name="email"
                 />
+                <small></small>
                 <br>
               </div>
               <div class="formData">
@@ -116,7 +120,15 @@
               <div class="formData">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label>
                 <br>
-                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                <input 
+                  type="number" 
+                  class="text-control" 
+                  id="quantity" 
+                  name="quantity" 
+                  min="0" 
+                  max="99"
+                >
+                <small></small>
               </div>
               <p class="text-label">Quelles villes ?</p>
               <div class="formData">
@@ -186,6 +198,8 @@
                   <span class="checkbox-icon"></span>
                   Portland
                 </label>
+                <br>
+                <small id="location-small"></small>
               </div>
 
               <div class="formData">
@@ -193,6 +207,7 @@
                   class="checkbox-input"
                   type="checkbox"
                   id="checkbox1"
+                  name="cgu"
                   checked
                 />
                 <label class="checkbox2-label" for="checkbox1" required>
@@ -206,11 +221,11 @@
                   Je Je souhaite être prévenu des prochains évènements.
                 </label>
                 <br>
+                <small id="cgu-small"></small>
               </div>
               <input
-                class="btn-submit"
+                class="btn-submit button"
                 type="submit"
-                class="button"
                 value="C'est parti"
               />
             </form>
@@ -221,6 +236,7 @@
     <footer>
       <p class="copyrights">Copyright 2014 - 2020, GameOn Inc.</p>
     </footer>
-    <script src="modal.js"></script>
+    <script src="./js/modal.js"></script>
+    <script src="./js/form.js"></script>
   </body>
 </html>
