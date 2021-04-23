@@ -332,6 +332,10 @@ input[data-error]::after {
   cursor: pointer;
   border: 0;
 }
+.btn-submit:disabled{
+  cursor: not-allowed;
+  background: #8b8081;
+}
 /* custom select styles */
 .custom-select {
   position: relative;
