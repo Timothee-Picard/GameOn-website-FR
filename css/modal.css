@@ -66,8 +66,8 @@ img {
 .topnav .icon {
   display: none;
 }
-
-@media screen and (max-width: 768px) {
+/* TODO: REMOVE ERROR: SWITCH 768px BY 1125px */
+@media screen and (max-width: 1125px) {
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
@@ -96,7 +96,7 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -15px;
+    /* TODO: REMOVE ERROR: REMOVE margin-top: -15px; */
   }
 } 
 
@@ -481,7 +481,9 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
-@media screen and (max-width: 800px) {
+
+/* TODO: REMOVE ERROR: SWITCH 800px BY 980px */
+@media screen and (max-width: 980px) {
   .hero-section {
     display: block;
     box-shadow: unset;
@@ -490,6 +492,8 @@ footer {
     background: #fff;
     color: #000;
     padding: 20px;
+    /* TODO: REMOVE ERROR: ADD min-width: unset; */
+    min-width: unset;
   }
   .hero-content::after {
     content: unset;
@@ -500,6 +504,8 @@ footer {
   .hero-headline {
     font-size: 4.5rem;
     white-space: normal;
+    /* TODO: REMOVE ERROR: ADD hyphens: auto; */
+    hyphens: auto;
   }
   .hero-text {
     width: unset;
@@ -508,6 +514,8 @@ footer {
   .hero-img img {
     border-radius: 10px;
     margin-top: 40px;
+    /* TODO: REMOVE ERROR: ADD width: 100%; */
+    width: 100%;
   }
   .hero-section > .btn-signup {
     display: block;
