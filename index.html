@@ -12,7 +12,8 @@
     <header class="topnav" id="myTopnav">
       
       <div class="header-logo">
-        <img alt="logo" src="./assets/Logo.png" width="auto" height="auto" />
+        <!-- TODO: REMOVE ERROR: REMOVE ATTR width="auto" height="auto" -->
+        <img alt="logo GameOn" src="./assets/Logo.png"/>
       </div>
 
       <nav class="main-navbar">
@@ -48,7 +49,7 @@
         </div>
 
         <div class="hero-img">
-          <img src="./assets/bg_img.jpg" alt="img" />
+          <img src="./assets/bg_img.jpg" alt="image gameuse célébrant une victoire avec une manette" />
         </div>
 
         <!-- Mobile Version -->
@@ -78,7 +79,6 @@
                   name="first"
                   minlength="2"
                 />
-                <small></small>
                 <br>
               </div>
               <div class="formData">
@@ -91,7 +91,6 @@
                   name="last"
                   minlength="2"
                 />
-                <small></small>
                 <br>
               </div>
               <div class="formData">
@@ -103,7 +102,6 @@
                   id="email"
                   name="email"
                 />
-                <small></small>
                 <br>
               </div>
               <div class="formData">
@@ -115,7 +113,6 @@
                   id="birthdate"
                   name="birthdate"
                 />
-                <small></small>
                 <br>
               </div>
               <div class="formData">
@@ -129,7 +126,6 @@
                   min="0" 
                   max="99"
                 >
-                <small></small>
               </div>
               <p class="text-label">Quelles villes ?</p>
               <div class="formData">
@@ -200,7 +196,6 @@
                   Portland
                 </label>
                 <br>
-                <small id="location-small"></small>
               </div>
 
               <div class="formData">
@@ -211,7 +206,8 @@
                   name="cgu"
                   checked
                 />
-                <label class="checkbox2-label" for="checkbox1" required>
+                <!-- TODO: REMOVE ERROR: REMOVE ATTR required -->
+                <label class="checkbox2-label" for="checkbox1">
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
@@ -222,7 +218,6 @@
                   Je souhaite être prévenu des prochains évènements.
                 </label>
                 <br>
-                <small id="cgu-small"></small>
               </div>
               <input
                 class="btn-submit button"

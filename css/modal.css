@@ -538,3 +538,8 @@ footer {
   }
 }
 
+/* TODO: ADD CSS FOR MODAL ERROR */
+.error{
+  color: #fe142f;
+  font-size: 14px;
+}

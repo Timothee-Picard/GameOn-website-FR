@@ -50,32 +50,27 @@ form.addEventListener('submit', function(e) {
 
     // VERIFY USER WRITE SOMETHING
     if(form.first.value == '') {
-        let small = form.first.nextElementSibling;
-        small.innerHTML = 'Veuillez entrer 2 caractères ou plus pour le champ du prénom.';
+        displayError(form.first, 'Veuillez entrer 2 caractères ou plus pour le champ du prénom.')
         state = false;
     }
 
     if(form.last.value == '') {
-        let small = form.last.nextElementSibling;
-        small.innerHTML = 'Veuillez entrer 2 caractères ou plus pour le champ du nom.';
+        displayError(form.last, 'Veuillez entrer 2 caractères ou plus pour le champ du nom.')
         state = false;
     }
 
     if(form.email.value == '') {
-        let small = form.email.nextElementSibling;
-        small.innerHTML = 'Veuillez renseigner un email.';
+        displayError(form.email, 'Veuillez renseigner un email.')
         state = false;
     }
 
     if(form.birthdate.value == '') {
-        let small = form.birthdate.nextElementSibling;
-        small.innerHTML = 'Vous devez entrer votre date de naissance.';
+        displayError(form.birthdate, 'Vous devez entrer votre date de naissance.')
         state = false;
     }
 
     if(form.quantity.value == '') {
-        let small = form.quantity.nextElementSibling;
-        small.innerHTML = 'Veuillez entrer une valeur numérique comprise entre 0 et 99.';
+        displayError(form.quantity, 'Veuillez entrer une valeur numérique comprise entre 0 et 99.')
         state = false;
     }
 
@@ -86,114 +81,107 @@ form.addEventListener('submit', function(e) {
     }
 });
 
+// FUNCTION ERROR
+const displayError = function(element, message){
+    let br = document.createElement("br");
+    element.after(br);
+
+    let div = document.createElement("div");
+    let divContent = document.createTextNode(message);
+    div.classList.add("error");
+    div.appendChild(divContent)
+    br.after(div);
+}
 
 // FUNCTIONS VALIDATION
 const validFirst = function(inputFirst) {
     // LOCAL VAR
-    let small = inputFirst.nextElementSibling;
     let firstRegExp = /^[a-zA-Z][a-zA-Z]+$/;
 
     // TESTS
     if(!firstRegExp.test(inputFirst.value) && !inputFirst.value.length == '') {
-        small.innerHTML = 'Veuillez entrer 2 caractères ou plus pour le champ du prénom.';
+        displayError(inputFirst, 'Veuillez entrer 2 caractères ou plus pour le champ du prénom.');
         return false;
     }
     else {
-        small.innerHTML = '';
         return true;
     }
 }
 
 const validLast = function(inputLast) {
     // LOCAL VAR
-    let small = inputLast.nextElementSibling;
     let lastRegExp = /^[a-zA-Z][a-zA-Z]+$/;
     
     // TESTS
     if(!lastRegExp.test(inputLast.value) && !inputLast.value.length == '') {
-        small.innerHTML = 'Veuillez entrer 2 caractères ou plus pour le champ du nom.';
+        displayError(inputLast, 'Veuillez entrer 2 caractères ou plus pour le champ du nom.');
         return false;
     }
     else {
-        small.innerHTML = '';
         return true;
     }
 }
 
 const validEmail = function(inputEmail) {
     // LOCAL VAR
-    let small = inputEmail.nextElementSibling;
     let emailRegExp = new RegExp ('^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}' , 'g');
 
     // TESTS
     if(!emailRegExp.test(inputEmail.value) && !inputEmail.value.length == '' ) {
-        small.innerHTML = 'Veuillez entrer un email valide.';
+        displayError(inputEmail, 'Veuillez entrer un email valide.')
         return false;
     }
     else {
-        small.innerHTML = '';
         return true;
     }
 }
 
 const validBirthdate = function(inputBirthdate) {
     // LOCAL VAR
-    let small = inputBirthdate.nextElementSibling;
     let birthdateRegExp = /^\d{4}-\d{2}-\d{2}$/;
 
     // TESTS
     if(!birthdateRegExp.test(inputBirthdate.value) && !inputBirthdate.value.length == '') {
-        small.innerHTML = 'Vous devez entrer votre date de naissance.';
+        displayError(inputLast, 'Vous devez entrer votre date de naissance.')
         return false;
     }
     else {
-        small.innerHTML = '';
         return true;
     }
 }
 
 const validQuantity = function(inputQuantity) {
     // LOCAL VAR
-    let small = inputQuantity.nextElementSibling;
     let emailRegExp = /^[0-9]{1,2}$/;
 
     // TESTS
     if(!emailRegExp.test(inputQuantity.value) && !inputQuantity.value.length == '') {
-        small.innerHTML = 'Veuillez entrer une valeur numérique comprise entre 0 et 99.';
+        displayError(inputQuantity,'Veuillez entrer une valeur numérique comprise entre 0 et 99.');
         return false;
     }
     else {
-        small.innerHTML = '';
         return true;
     }
 }
 
 const validLocation = function(inputLocation) {
-    // LOCAL VAR
-    let small = document.querySelector('#location-small');
-
     // TESTS
     if(inputLocation.value == '') {
-        small.innerHTML = 'Vous devez choisir une option.';
+        displayError(inputLocation[inputLocation.length-1].nextElementSibling, 'Vous devez choisir une option.');
         return false;
     }
     else {
-        small.innerHTML = '';
         return true;
     }
 }
 
 const validCgu = function(inputCgu) {
-    // LOCAL VAR
-    let small = document.querySelector('#cgu-small');
-
     // TESTS
     if(!inputCgu.checked){
-        small.innerHTML = 'Vous devez vérifier que vous acceptez les termes et conditions.';
+        displayError(inputCgu.nextElementSibling, 'Vous devez vérifier que vous acceptez les termes et conditions.')
         return false;
     }
     else{
-        small.innerHTML = '';
         return true;
     }
 }
