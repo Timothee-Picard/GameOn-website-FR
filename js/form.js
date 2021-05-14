@@ -1,5 +1,5 @@
 const form = document.querySelector('#formReserve');
-
+// INPUT LIST
 const formContent = [
     {
         name: form.first,
@@ -25,26 +25,8 @@ const formContent = [
         name: form.quantity,
         regexp: /^[0-9]{1,2}$/,
         message: "Veuillez entrer une valeur numérique comprise entre 0 et 99."
-    },
-    // {
-    //     name: form.location,
-    //     regexp: ""
-    // },
-    // {
-    //     name: form.cgu,
-    //     regexp: ""
-    // }
+    }
 ]
-
-form.location.forEach(choice => 
-    choice.addEventListener('change', function() {
-        validLocation(this);
-    })
-);
-
-form.cgu.addEventListener('change', function() {
-    validCgu(this);
-});
 
 // EVENTS
 formContent.forEach(input => 
@@ -59,6 +41,16 @@ formContent.forEach(input =>
         }
     })
 );
+
+form.location.forEach(choice => 
+    choice.addEventListener('change', function() {
+        validLocation(this);
+    })
+);
+
+form.cgu.addEventListener('change', function() {
+    validCgu(this);
+});
 
 // FUNCTION ERROR
 const displayError = function(element, message){
