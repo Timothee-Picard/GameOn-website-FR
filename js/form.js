@@ -108,6 +108,7 @@ const validLocation = function(inputLocation) {
         return false;
     }
     else {
+        dellError(form.location[form.location.length - 1].nextElementSibling)
         return true;
     }
 }
@@ -119,6 +120,7 @@ const validCgu = function(inputCgu) {
         return false;
     }
     else{
+        dellError(inputCgu.nextElementSibling)
         return true;
     }
 }
