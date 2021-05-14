@@ -77,7 +77,7 @@ const displayError = function(element, message){
 }
 
 const dellError = function(element){
-    if(element.nextSibling.nextSibling.className == "error"){
+    if(element.nextSibling.nextSibling && element.nextSibling.nextSibling.className == "error"){
         for (var i=0; i < 2; i++) element.nextSibling.remove();
     }
 }
@@ -101,7 +101,10 @@ form.addEventListener('submit', function(e) {
         }
     });
 
-    (state)?console.log('SHOW MODAL'):null;
+    if(state){
+        console.log('SHOW MODAL')
+        form.innerHTML = `<h2>Merci d'avoir soumis les détails de votre inscription</h2>`
+    }
 });
 
 // FUNCTIONS VALIDATION

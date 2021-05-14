@@ -539,7 +539,14 @@ footer {
 }
 
 /* TODO: ADD CSS FOR MODAL ERROR */
-.error{
+.error {
   color: #fe142f;
   font-size: 14px;
+}
+
+/* TODO: ADD CSS SUBMITTED MESSAGE */
+
+h2 {
+  text-align: center;
+  margin: 5em 0;
 }
