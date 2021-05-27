@@ -96,7 +96,7 @@ form.addEventListener('submit', function(e) {
     if(state){
         console.log('SHOW MODAL')
         form.innerHTML = `<h2>Merci d'avoir soumis les détails de votre inscription</h2>
-        <input class="btn-submit button" type="submit" value="Fermer" name="submit"/>`
+        <input class="btn-submit button" onclick="closeModal()" type="submit" value="Fermer" name="submit"/>`
     }
 });
 
